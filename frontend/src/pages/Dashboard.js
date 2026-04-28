@@ -4,6 +4,8 @@ import API from "../services/api";
 
 import DashboardLayout from "../layouts/DashboardLayout";
 
+import "./dashboard.css";
+
 export default function Dashboard() {
   const [leadCount, setLeadCount] = useState(0);
 
@@ -47,39 +49,32 @@ export default function Dashboard() {
 
   return (
     <DashboardLayout>
-      <h3>
-        Welcome {user?.name}({user?.role})
-      </h3>
-
-      <div className="row mt-4">
-        {/* TOTAL LEADS */}
-
-        <div className="col-md-4">
-          <div className="card bg-success text-white p-4 shadow">
-            <h5>Total Leads</h5>
-
-            <h2>{leadCount}</h2>
-          </div>
+      <section className="dashboard-hero crm-panel">
+        <div>
+          <p className="dashboard-hero__eyebrow">Performance overview</p>
+          <h1 className="crm-page-title">{user?.name || "User"}&apos;s workspace</h1>
+          <p className="crm-page-subtitle">
+            You are signed in as <span className="font-semibold text-brand-100">{user?.role}</span>.
+          </p>
         </div>
 
-        {/* DEALS */}
+        <span className="crm-badge bg-white/80 text-brand-700">Standard CRM</span>
+      </section>
 
-        <div className="col-md-4">
-          <div className="card bg-warning p-4 shadow">
-            <h5>Deals Pipeline</h5>
-
-            <h2>{dealCount}</h2>
-          </div>
+      <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="dashboard-stat dashboard-stat-leads">
+          <p className="dashboard-stat__label">Total Leads</p>
+          <h2 className="dashboard-stat__value">{leadCount}</h2>
         </div>
 
-        {/* ACTIVITIES */}
+        <div className="dashboard-stat dashboard-stat-deals">
+          <p className="dashboard-stat__label">Deals Pipeline</p>
+          <h2 className="dashboard-stat__value">{dealCount}</h2>
+        </div>
 
-        <div className="col-md-4">
-          <div className="card bg-info text-white p-4 shadow">
-            <h5>Activities</h5>
-
-            <h2>{activityCount}</h2>
-          </div>
+        <div className="dashboard-stat dashboard-stat-activities">
+          <p className="dashboard-stat__label">Activities</p>
+          <h2 className="dashboard-stat__value">{activityCount}</h2>
         </div>
       </div>
     </DashboardLayout>

@@ -8,19 +8,20 @@ import Register from "./pages/Register";
 
 import Dashboard from "./pages/Dashboard";
 
-import LeadList from "./pages/leads/LeadList";
+import LeadList from "./pages/leads/LeadListPage";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 
-import Deals from "./pages/deals/Deals";
+import Deals from "./pages/deals/DealsPage";
 
-import AddLead from "./pages/leads/AddLead";
+import AddLead from "./pages/leads/AddLeadPage";
 
-import LeadDetail from "./pages/leads/LeadDetail";
+import LeadDetail from "./pages/leads/LeadDetailPage";
 
-import EditLead from "./pages/leads/EditLead";
+import EditLead from "./pages/leads/EditLeadPage";
 
-import Activities from "./pages/activities/Activities";
+import Activities from "./pages/activities/ActivitiesPage";
+import Users from "./pages/users/UsersPage";
 
 function App() {
   return (
@@ -91,6 +92,15 @@ function App() {
           element={
             <ProtectedRoute>
               <Activities />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/users"
+          element={
+            <ProtectedRoute>
+              <Users />
             </ProtectedRoute>
           }
         />

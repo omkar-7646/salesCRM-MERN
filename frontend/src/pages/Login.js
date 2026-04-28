@@ -4,6 +4,8 @@ import API from "../services/api";
 
 import { useNavigate, Link } from "react-router-dom";
 
+import "./auth.css";
+
 export default function Login() {
   const nav = useNavigate();
 
@@ -11,7 +13,9 @@ export default function Login() {
 
   const [password, setPassword] = useState("");
 
-  const submit = async () => {
+  const submit = async (e) => {
+    e.preventDefault();
+
     try {
       const res = await API.post(
         "/auth/login",
@@ -43,37 +47,36 @@ export default function Login() {
   };
 
   return (
-    <div
-      className="d-flex justify-content-center align-items-center"
-      style={{
-        height: "100vh",
+    <div className="auth-shell">
+      <div className="auth-panel">
+        <span className="auth-chip">Secure Access</span>
+        <h1 className="auth-title">Sign in to your CRM dashboard</h1>
+        <p className="auth-description">Use your email and password to continue.</p>
 
-        background: "linear-gradient(120deg,#2980b9,#6dd5fa)",
-      }}>
-      <div className="card p-5 shadow-lg" style={{ width: "420px" }}>
-        <h3 className="text-center text-primary">CRM Login</h3>
+        <form className="mt-8 space-y-4" onSubmit={submit}>
+          <input
+            className="crm-input"
+            placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
-        <input
-          className="form-control my-3"
-          placeholder="Email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
+          <input
+            type="password"
+            className="crm-input"
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
-        <input
-          type="password"
-          className="form-control my-3"
-          placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
+          <button type="submit" className="crm-button-primary w-full">
+            Login
+          </button>
+        </form>
 
-        <button className="btn btn-primary w-100" onClick={submit}>
-          Login
-        </button>
-
-        <hr />
-
-        <p className="text-center">
-          No account ?<Link to="/register">Register Here</Link>
+        <p className="auth-footer">
+          No account?
+          <Link to="/register" className="auth-link">
+            Register here
+          </Link>
         </p>
       </div>
     </div>

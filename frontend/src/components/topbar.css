@@ -1,0 +1,47 @@
+.crm-topbar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(246, 239, 255, 0.92));
+  box-shadow: 0 12px 28px rgba(55, 19, 112, 0.08);
+}
+
+.crm-topbar__label {
+  margin: 0;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: #8a67d7;
+}
+
+.crm-topbar__title {
+  margin: 0.3rem 0 0;
+  font-size: clamp(1.35rem, 2vw, 1.9rem);
+  font-weight: 700;
+  color: #2a124d;
+}
+
+.crm-topbar__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .crm-topbar__actions {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .crm-topbar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

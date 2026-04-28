@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
+import "./topbar.css";
+
 export default function Topbar() {
   const nav = useNavigate();
 
@@ -12,14 +14,21 @@ export default function Topbar() {
   const user = JSON.parse(localStorage.getItem("user"));
 
   return (
-    <div className="bg-success text-white d-flex justify-content-between p-2">
-      <h5>
-        Welcome {user?.name}({user?.role})
-      </h5>
+    <header className="crm-topbar">
+      <div>
+        <p className="crm-topbar__label">Workspace</p>
+        <h2 className="crm-topbar__title">Welcome back, {user?.name || "User"}</h2>
+      </div>
 
-      <button className="btn btn-danger" onClick={logout}>
-        Logout
-      </button>
-    </div>
+      <div className="crm-topbar__actions">
+        <span className="crm-badge bg-brand-50 text-brand-700">
+          Role: {user?.role || "sales"}
+        </span>
+
+        <button className="crm-button-danger" onClick={logout}>
+          Logout
+        </button>
+      </div>
+    </header>
   );
 }

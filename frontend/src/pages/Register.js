@@ -4,6 +4,8 @@ import API from "../services/api";
 
 import { useNavigate, Link } from "react-router-dom";
 
+import "./auth.css";
+
 export default function Register() {
   const navigate = useNavigate();
 
@@ -45,79 +47,56 @@ export default function Register() {
   };
 
   return (
-    <div
-      className="d-flex justify-content-center align-items-center"
-      style={{
-        minHeight: "100vh",
+    <div className="auth-shell">
+      <div className="auth-panel">
+        <span className="auth-chip">New Workspace User</span>
+        <h1 className="auth-title">Create your CRM account</h1>
+        <p className="auth-description">Set up your profile and choose the right access level.</p>
 
-        background: "linear-gradient(135deg,#ff9966,#ff5e62)",
-      }}>
-      <div
-        className="card shadow-lg p-5"
-        style={{
-          width: "420px",
-
-          borderRadius: "15px",
-        }}>
-        <h3 className="text-center mb-4 text-dark">Create Account</h3>
-
-        <form onSubmit={submit}>
-          {/* NAME */}
-
+        <form className="mt-8 space-y-4" onSubmit={submit}>
           <input
             type="text"
-            className="form-control mb-3"
+            className="crm-input"
             placeholder="Full Name"
             required
             onChange={(e) => setName(e.target.value)}
           />
 
-          {/* EMAIL */}
-
           <input
             type="email"
-            className="form-control mb-3"
+            className="crm-input"
             placeholder="Email"
             required
             onChange={(e) => setEmail(e.target.value)}
           />
 
-          {/* PASSWORD */}
-
           <input
             type="password"
-            className="form-control mb-3"
+            className="crm-input"
             placeholder="Password"
             required
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          {/* ROLE */}
+          <div>
+            <label className="crm-label">Register As</label>
+            <select
+              className="crm-select"
+              value={role}
+              onChange={(e) => setRole(e.target.value)}>
+              <option value="sales">Sales Team (User)</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
 
-          <label className="fw-bold">Register As</label>
-
-          <select
-            className="form-select mb-4"
-            value={role}
-            onChange={(e) => setRole(e.target.value)}>
-            <option value="sales">Sales Team (User)</option>
-
-            <option value="admin">Admin</option>
-          </select>
-
-          <button
-            type="submit"
-            className="btn btn-dark w-100"
-            disabled={loading}>
+          <button type="submit" className="crm-button-primary w-full" disabled={loading}>
             {loading ? "Registering..." : "Register"}
           </button>
         </form>
 
-        <hr />
-
-        <p className="text-center">
-          Already have account ?
-          <Link to="/login" className="ms-2">
+        <p className="auth-footer">
+          Already have an account?
+          <Link to="/login" className="auth-link">
             Login
           </Link>
         </p>
