@@ -70,7 +70,7 @@ textarea {
 
 .crm-panel {
   border: 1px solid rgba(255, 255, 255, 0.85);
-  border-radius: 28px;
+  border-radius: 10px;
   background: var(--crm-panel);
   box-shadow: var(--crm-shadow-soft);
   backdrop-filter: blur(10px);
@@ -78,7 +78,7 @@ textarea {
 
 .crm-card {
   border: 1px solid rgba(122, 60, 255, 0.12);
-  border-radius: 22px;
+  border-radius: 10px;
   background: #ffffff;
   box-shadow: var(--crm-shadow-soft);
   transition: transform 180ms ease, box-shadow 180ms ease;
@@ -97,9 +97,9 @@ textarea {
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
-  min-height: 46px;
+  max-height: 33px;
   padding: 0.75rem 1.1rem;
-  border-radius: 14px;
+  border-radius: 8px;
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;

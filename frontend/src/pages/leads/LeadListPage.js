@@ -42,7 +42,7 @@ export default function LeadListPage() {
       </div>
 
       <section className="crm-panel lead-filter-panel">
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-2 md:grid-cols-2">
           <input
             className="crm-input"
             placeholder="Search leads..."

@@ -2,12 +2,15 @@ import { useState } from "react";
 
 import API from "../services/api";
 
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
+import { setAuthToken } from "../services/auth";
 
 import "./auth.css";
 
 export default function Login() {
   const nav = useNavigate();
+  const location = useLocation();
+  const redirectTo = location.state?.from?.pathname || "/dashboard";
 
   const [email, setEmail] = useState("");
 
@@ -26,11 +29,7 @@ export default function Login() {
         },
       );
 
-      localStorage.setItem(
-        "token",
-
-        res.data.token,
-      );
+      setAuthToken(res.data.token);
 
       // Optional save user info
 
@@ -40,7 +39,7 @@ export default function Login() {
         JSON.stringify(res.data.user),
       );
 
-      nav("/dashboard");
+      nav(redirectTo, { replace: true });
     } catch {
       alert("Login Failed");
     }

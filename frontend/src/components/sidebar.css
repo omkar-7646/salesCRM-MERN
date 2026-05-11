@@ -17,7 +17,7 @@
 .crm-sidebar::after {
   content: "";
   position: absolute;
-  border-radius: 999px;
+ 
   background: rgba(255, 255, 255, 0.08);
   filter: blur(8px);
 }
@@ -27,6 +27,25 @@
   right: -1rem;
   width: 9rem;
   height: 9rem;
+}
+
+.logo{
+  font-family: 'Dancing Script', cursive;
+}
+
+.golden-text {
+  background: linear-gradient(
+    90deg,
+    #FFD700,
+    #FFC107,
+    #FFB300,
+    #FFD700
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  font-weight: bold;
 }
 
 .crm-sidebar::after {
@@ -53,7 +72,7 @@
   place-items: center;
   width: 3.2rem;
   height: 3.2rem;
-  border-radius: 1.1rem;
+  border-radius: 2.1rem;
   background: rgba(255, 255, 255, 0.14);
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 12px 24px rgba(33, 4, 59, 0.2);
@@ -84,7 +103,7 @@
 .sidebar-link {
   display: block;
   padding: 0.95rem 1rem;
-  border-radius: 1rem;
+  border-radius: 0.4rem;
   color: rgba(255, 255, 255, 0.8);
   font-size: 0.96rem;
   font-weight: 600;
@@ -100,13 +119,14 @@
   background: rgba(255, 255, 255, 0.92);
   color: #5a1ec3;
   box-shadow: 0 12px 28px rgba(35, 4, 63, 0.16);
+  border-left: 3px solid rgb(186, 11, 244);
 }
 
 @media (min-width: 768px) {
   .crm-sidebar {
     width: 18rem;
     min-height: 100vh;
-    border-radius: 0 2rem 2rem 0;
+   
     padding: 2rem 1.4rem;
   }
 }

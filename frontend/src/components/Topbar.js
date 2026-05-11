@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { clearAuthToken } from "../services/auth";
 
 import "./topbar.css";
 
@@ -6,7 +7,8 @@ export default function Topbar() {
   const nav = useNavigate();
 
   const logout = () => {
-    localStorage.clear();
+    clearAuthToken();
+    localStorage.removeItem("user");
 
     nav("/login");
   };

@@ -67,12 +67,12 @@ export default function Dashboard() {
           <h2 className="dashboard-stat__value">{leadCount}</h2>
         </div>
 
-        <div className="dashboard-stat dashboard-stat-deals">
+        <div className="dashboard-stat dashboard-stat-leads">
           <p className="dashboard-stat__label">Deals Pipeline</p>
           <h2 className="dashboard-stat__value">{dealCount}</h2>
         </div>
 
-        <div className="dashboard-stat dashboard-stat-activities">
+        <div className="dashboard-stat dashboard-stat-leads">
           <p className="dashboard-stat__label">Activities</p>
           <h2 className="dashboard-stat__value">{activityCount}</h2>
         </div>

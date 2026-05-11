@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 1rem;
   padding: 1.8rem;
-  border-radius: 28px;
+  border-radius: 12px;
   background:
     radial-gradient(circle at top right, rgba(255, 255, 255, 0.16), transparent 24%),
     linear-gradient(135deg, #5914af 0%, #8c3eff 58%, #e44bb5 100%);
@@ -26,11 +26,12 @@
 
 .dashboard-stat {
   padding: 1.6rem;
+  border-radius: 8px;
 }
 
 .dashboard-stat-leads {
-  background: linear-gradient(145deg, #6a20d8, #e33ea4);
-  color: #fff;
+  background: linear-gradient(145deg, #6a20d8, #f2eaff);
+  color: black;
 }
 
 .dashboard-stat-deals {

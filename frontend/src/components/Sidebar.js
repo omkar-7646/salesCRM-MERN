@@ -9,7 +9,9 @@ export default function Sidebar() {
   return (
     <aside className="crm-sidebar">
       <div className="crm-sidebar__brand">
-        <div className="crm-sidebar__logo">C</div>
+        <div className="crm-sidebar__logo">
+          <p className="logo golden-text">CRM</p>
+        </div>
         <div>
           <p className="crm-sidebar__eyebrow">Standard CRM</p>
           <h1 className="crm-sidebar__title">Control Center</h1>
