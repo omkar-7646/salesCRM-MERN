@@ -154,10 +154,10 @@ textarea {
 .crm-textarea {
   width: 100%;
   border: 1px solid rgba(122, 60, 255, 0.16);
-  border-radius: 18px;
+  border-radius: 7px;
   background: rgba(255, 255, 255, 0.98);
   color: #241046;
-  padding: 0.95rem 1rem;
+  padding: 0.5rem;
   outline: none;
   transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
 }

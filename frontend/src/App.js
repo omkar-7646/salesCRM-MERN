@@ -12,6 +12,7 @@ import LeadList from "./pages/leads/LeadListPage";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 import PublicRoute from "./components/PublicRoute";
+import AdminRoute from "./components/AdminRoute";
 
 import Deals from "./pages/deals/DealsPage";
 
@@ -115,7 +116,9 @@ function App() {
           path="/users"
           element={
             <ProtectedRoute>
-              <Users />
+              <AdminRoute>
+                <Users />
+              </AdminRoute>
             </ProtectedRoute>
           }
         />

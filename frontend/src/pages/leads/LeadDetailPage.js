@@ -104,15 +104,19 @@ export default function LeadDetailPage() {
 
   return (
     <DashboardLayout>
-      <div className="mb-6">
+      <div className="lead-detail-heading">
         <h1 className="crm-page-title">Lead Details</h1>
         <p className="crm-page-subtitle">Review this lead, create deals, and log follow-up activity.</p>
       </div>
 
       <section className="crm-panel lead-detail-summary">
-        <div>
-          <p className="lead-detail-summary__label">Lead Name</p>
-          <h2 className="lead-detail-summary__title">{lead.name}</h2>
+        <div className="lead-detail-summary__header">
+          <div>
+            <p className="lead-detail-summary__label">Lead Name</p>
+            <h2 className="lead-detail-summary__title">{lead.name}</h2>
+          </div>
+
+          
         </div>
 
         <div className="lead-detail-summary__grid">
@@ -127,7 +131,7 @@ export default function LeadDetailPage() {
         <section className="crm-panel lead-detail-panel">
           <h3 className="lead-section-title">Create Deal</h3>
 
-          <form className="space-y-4" onSubmit={createDeal}>
+          <form className="lead-detail-form" onSubmit={createDeal}>
             <input
               className="crm-input"
               placeholder="Deal Title"
@@ -153,25 +157,25 @@ export default function LeadDetailPage() {
             </button>
           </form>
 
-          <div className="mt-8 space-y-3">
+          <div className="lead-detail-list">
             <h4 className="lead-section-subtitle">Deals</h4>
             {deals.length === 0 ? (
               <div className="crm-empty">No deals yet.</div>
             ) : (
               deals.map((d) => (
                 <article key={d._id} className="crm-card lead-detail-card">
-                  <h5 className="font-semibold text-slate-900">{d.title}</h5>
-                  <p className="text-sm text-slate-500">Amount: Rs {d.amount}</p>
+                  <h5 className="lead-detail-card__title">{d.title}</h5>
+                  <p className="lead-detail-card__meta">Amount: Rs {d.amount}</p>
                   <select
                     value={d.stage}
-                    className="crm-select mt-3"
+                    className="crm-select mt-2"
                     onChange={(e) => updateStage(d._id, e.target.value)}>
                     <option>Prospect</option>
                     <option>Negotiation</option>
                     <option>Won</option>
                     <option>Lost</option>
                   </select>
-                  <button className="crm-button-danger mt-3" onClick={() => deleteDeal(d._id)}>
+                  <button className="crm-button-danger mt-2" onClick={() => deleteDeal(d._id)}>
                     Delete Deal
                   </button>
                 </article>
@@ -183,7 +187,7 @@ export default function LeadDetailPage() {
         <section className="crm-panel lead-detail-panel">
           <h3 className="lead-section-title">Log Activity</h3>
 
-          <form className="space-y-4" onSubmit={createActivity}>
+          <form className="lead-detail-form" onSubmit={createActivity}>
             <select className="crm-select" value={type} onChange={(e) => setType(e.target.value)}>
               <option value="call">Call</option>
               <option value="meeting">Meeting</option>
@@ -203,7 +207,7 @@ export default function LeadDetailPage() {
             </button>
           </form>
 
-          <div className="mt-8 space-y-3">
+          <div className="lead-detail-list">
             <h4 className="lead-section-subtitle">Activity History</h4>
             {activities.length === 0 ? (
               <div className="crm-empty">No activity yet.</div>
@@ -211,9 +215,9 @@ export default function LeadDetailPage() {
               activities.map((a) => (
                 <article key={a._id} className="crm-card lead-detail-card">
                   <span className="crm-badge bg-brand-50 text-brand-700">{a.type}</span>
-                  <p className="mt-3 text-sm text-slate-600">{a.description}</p>
-                  <p className="mt-2 text-xs text-slate-500">By: {a.createdBy?.name || "Unknown"}</p>
-                  <button className="crm-button-danger mt-3" onClick={() => deleteActivity(a._id)}>
+                  <p className="lead-detail-card__description">{a.description}</p>
+                  <p className="lead-detail-card__byline">By: {a.createdBy?.name || "Unknown"}</p>
+                  <button className="crm-button-danger mt-2" onClick={() => deleteActivity(a._id)}>
                     Delete
                   </button>
                 </article>

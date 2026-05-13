@@ -31,3 +31,15 @@ export function clearAuthToken() {
   Cookies.remove(TOKEN_KEY, { path: "/" });
   localStorage.removeItem(TOKEN_KEY);
 }
+
+export function getCurrentUser() {
+  try {
+    return JSON.parse(localStorage.getItem("user"));
+  } catch {
+    return null;
+  }
+}
+
+export function isAdmin() {
+  return getCurrentUser()?.role === "admin";
+}

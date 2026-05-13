@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { clearAuthToken } from "../services/auth";
+import { clearAuthToken, getCurrentUser } from "../services/auth";
 
 import "./topbar.css";
 
@@ -13,7 +13,7 @@ export default function Topbar() {
     nav("/login");
   };
 
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = getCurrentUser();
 
   return (
     <header className="crm-topbar">

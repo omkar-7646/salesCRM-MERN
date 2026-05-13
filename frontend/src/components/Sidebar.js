@@ -1,10 +1,12 @@
 import { NavLink } from "react-router-dom";
+import { isAdmin } from "../services/auth";
 
 import "./sidebar.css";
 
 export default function Sidebar() {
   const navItemClass = ({ isActive }) =>
     `sidebar-link ${isActive ? "sidebar-link-active" : ""}`;
+  const canManageUsers = isAdmin();
 
   return (
     <aside className="crm-sidebar">
@@ -31,9 +33,11 @@ export default function Sidebar() {
         <NavLink to="/activities" className={navItemClass}>
           Activities
         </NavLink>
-        <NavLink to="/users" className={navItemClass}>
-          Users
-        </NavLink>
+        {canManageUsers && (
+          <NavLink to="/users" className={navItemClass}>
+            Users
+          </NavLink>
+        )}
       </nav>
     </aside>
   );
